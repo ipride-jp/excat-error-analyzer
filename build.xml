@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     sheng                                                                
+     ====================================================================== -->
+<project name="error_analyzer" default="default">
+    <description>
+            解析ツール
+    </description>
+	<path id="build_classpath">
+	    <fileset dir="lib" includes="*.jar" excludes="ErrorAnalyzer.jar"/>
+	</path>
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default">
+        <mkdir dir="bin"/>
+    	<javac srcdir="src" destdir="bin">
+    	    <classpath refid="build_classpath"/>
+    	    <patternset>
+    	        <include name="**/*.java"/>
+    	    </patternset>
+    	</javac>
+        <copy todir="bin">
+             <fileset  dir="src">
+               <exclude name="**/*.java"/>
+             </fileset>
+        </copy>
+        <jar destfile="lib/ErrorAnalyzer.jar" manifest="error_analyzer">
+        	<fileset dir="bin">
+                <include name="jp/**"/>
+                <include name="log4j.xml"/>
+                <include name="*.properties"/>
+            </fileset>
+        </jar>
+    </target>
+
+</project>

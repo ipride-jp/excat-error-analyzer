@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+<!--
+	ログ出力レイアウトの変換パターン
+
+	%c		ログイベントのカテゴリー名を出力する。
+	%C		ロギング要求を行うクラス名を出力する。
+	%d		ログイベントの日時を出力する。
+			%d{HH:mm:ss} や %d{dd MMM yyyy HH}として、より柔軟に日時情報を出力することが出来る。
+	%F(*)	ログ要求が発生したファイル名を出力する。
+	%l(*)	ログが生成されたときに呼び出された位置（ソース名、行）を出力する。
+	%L(*)	ロギング要求を行なった行番号を出力する。
+	%m		ロギングイベントで設定されたメッセージを出力する。
+	%M(*)	ログ要求が行なわれたメソッド名を出力する。
+	%n		プラットフォーム依存の改行文字を出力する。
+	%p		ログの優先度を出力します。
+	%r		アプリケーションが開始してから、ログが出力されるまでの時間をミリ秒単位で出力する。
+	%t		ログを生成したスレッドの名前を出力する。
+	%x		ログが生成されたスレッドのNDC(ネスト化診断コンテキスト) を出力する。
+	%%		%を出力する。
+
+	(*) これらを出力するときのパフォーマンスは良くないため、
+	アプリケーションの実行速度が問題にならない場合にのみ使用することが推奨されている。
+-->
+
+
+	<!-- エラー用ログ出力の設定 -->
+	<appender name="appender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="logs/viewer.log" />
+		<param name="Append" value="true" />
+
+		<param name="MaxFileSize" value="5MB" />
+		<param name="MaxBackupIndex" value="4" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d{yyyy/MM/dd HH:mm:ss,SSS} : %m %n" />
+		</layout>
+	</appender>
+
+	<logger name="viewerLogger" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="appender" />
+	</logger>
+
+</log4j:configuration>

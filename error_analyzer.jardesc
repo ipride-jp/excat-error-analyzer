@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="MS932" standalone="no"?>
+<jardesc>
+    <jar path="c:/ErrorAnalyzer.jar"/>
+    <options buildIfNeeded="true" compress="true"
+      descriptionLocation="/excat_tool_v3/error_analyzer.jardesc"
+      exportErrors="true" exportWarnings="true"
+      includeDirectoryEntries="false" overwrite="true"
+      saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/excat_tool_v3/error_analyzer"
+      manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=excat_tool_v3/src"/>
+    </selectedElements>
+</jardesc>
